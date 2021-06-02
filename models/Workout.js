@@ -2,17 +2,30 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-// TODO:  add workout data here such as duration, weight, reps, etc
 const WorkoutSchema = new Schema({
-  name: {
-    type: String,
-    trim: true,
-    required: "Enter a name for workout"
-  },
-  date: {
+  day: {
     type: Date,
     default: Date.now
-  }
+  },
+    exercises: [
+    {
+      type: String,
+      name: String,
+      duration: Number,
+      weight: Number,
+      reps: Number,
+      sets: Number,
+      distance: Number,
+    },
+  ],
+});
+
+WorkoutSchema.virtual('totalDuration').get(function() {
+  let totalDuration = 0;
+  this.exercises.forEach(exercise => {
+    totalDuration += exercise.duration;
+  });
+  return totalDuration;
 });
 
 const Workout = mongoose.model("Workout", WorkoutSchema);

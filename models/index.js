@@ -1,2 +1,3 @@
-// require Workout
-// create any necessary associations
+const Workout = require("./Workout");
+
+module.exports = {Workout}
