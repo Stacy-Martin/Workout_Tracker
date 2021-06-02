@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Tracker = require("../models/tracker.js");
+const Tracker = require("../models/Workout.js");
 
 router.post("/api/tracker", ({ body }, res) => {
   Tracker.create(body)
