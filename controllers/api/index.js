@@ -1,7 +1,7 @@
 // require db
 
 // require Workout model
-const Workout = require('../models/Workout')
+const Workout = require('../../models/Workout')
 
 // require router
 
@@ -15,4 +15,4 @@ const Workout = require('../models/Workout')
 // get route to find workouts (only past 7 workouts should display)
 
 
-module.exports = router;
+// module.exports = router;

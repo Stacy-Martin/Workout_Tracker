@@ -3,13 +3,14 @@ const mongoose = require("mongoose");
 // morgan is a HTTP request logger middleware
 const morgan = require('morgan')
 const routes = require('./controllers');
+// which username and pw does the env file store?
 require('dotenv').config();
 const apiRoutes = require('./controllers/api')
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-// app.use(morgan(.....));
+// app.use(morgan(???));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));

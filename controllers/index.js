@@ -6,6 +6,6 @@ const apiRoutes = require('./api');
 // TODO:  need additional route to send files to the app HTML...??
 
 // router.use('/', homeRoutes);
-router.use('/api', apiRoutes);
+// router.use('/api', apiRoutes);
 
 module.exports = router;
