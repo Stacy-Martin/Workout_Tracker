@@ -34,20 +34,7 @@ mongoose.connect(
 
 // app.use(require("./routes/api.js"));
 
-// render the homepage ?? get...
-router.get("/", (req, res) => {
-    res.send("Home Page..");
-});
 
-// app.get the exercise stats
-router.get("/stats", (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/stats.html'))
-});
-
-// app.get the exercises
-router.get("/exercise", (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/exercise.html'))
-});
 
 
 app.listen(PORT, () => {

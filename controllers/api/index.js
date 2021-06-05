@@ -1,27 +1,27 @@
 // require Workout model
 const Workout = require('../../models/Workout')
-
+const db = require("../../models");
 // require router
 const router = require('express').Router();
 
 
 // get route to read/find all workouts in db
-router.get("/Workout", (req, res) => {
-    Workout.find({})
-      .then(Workout => {
-        res.json(Workout);
-      })
-      .catch(err => {
-        res.json(err);
-      });
-  });
+router.get('/workouts', (req, res) => {
+    db.Workout.find({})
+    .then(dbWorkout => {
+        res.json(dbWorkout);
+    })
+    .catch(err => {
+        res.status(err);
+    });
+});
 
 
 // post route to create new workouts
-router.post("/Workout", ({ body }, res) => {
-  Workout.create(body)
-    .then((Workout) => {
-      res.json(Workout);
+router.post("/workouts", ({ body }, res) => {
+  db.Workout.create(body)
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
     })
     .catch((err) => {
       res.json(err);
@@ -29,24 +29,27 @@ router.post("/Workout", ({ body }, res) => {
 });
 
 // put route to update workouts 
-router.put("/Workout/:id", ({ body, params }, res) => {
-    Workout.findOneAndUpdate({_id: params.id}, {$push: {exercises: body} })
-      .then(Workout => {
-        res.json(Workout);
-      })
-      .catch(err => {
-        res.status(400).json(err);
-      });
-  });
+router.put("/workouts/:id", ({ body, params }, res) => {
+  db.Workout.findOneAndUpdate(
+    { _id: params.id },
+    { $push: { exercises: body } }
+  )
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.status(err);
+    });
+});
 
-// get route to find workouts (only past 7 workouts should display)
-router.get('/Workout/range', (req, res) => {
-    Workout.find({})
-    .then(Workout => {
-        res.json(Workout);
+// TODO:  get route to find workouts (only past 7 workouts should display)
+router.get('/workouts/range', (req, res) => {
+    db.Workout.find({})
+    .then(dbWorkout => {
+        res.json(dbWorkout);
     })
     .catch(err => {
-        res.status(500).json(err);
+        res.status(err);
     });
 });
 
