@@ -5,6 +5,8 @@ const morgan = require('morgan')
 const routes = require('./controllers');
 require('dotenv').config();
 const apiRoutes = require('./controllers/api')
+const router = require('express').Router();
+const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -28,12 +30,25 @@ mongoose.connect(
 
 // routes - these need to be the last files that you connect to
 // can go here or in the index.js in the api folder
-// res.sendFile  stats and exercis html files in public folder 
+// res.sendFile  stats and exercise html files in public folder 
 
-app.use(require("./routes/api.js"));
+// app.use(require("./routes/api.js"));
+
 // render the homepage ?? get...
-// app.get the exercises
+router.get("/", (req, res) => {
+    res.send("Home Page..");
+});
+
 // app.get the exercise stats
+router.get("/stats", (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/stats.html'))
+});
+
+// app.get the exercises
+router.get("/exercise", (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/exercise.html'))
+});
+
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
