@@ -5,6 +5,8 @@
 ## Description
 Personal fitness is trendier than ever...and so is tech!  For this project I have created the back end code for a workout tracker app.  Functions have been implemented so the user can log and track multiple components of their daily workouts.
 
+![](https://raw.githubusercontent.com/Stacy-Martin/Workout_Tracker/main/public/Images/Screen%20Shot%202021-06-06%20at%2012.14.20%20AM.png)
+
 ## Table of Contents
   - [Workout Tracker](#Workout_Tracker)
   - [Description](#description)
@@ -41,7 +43,7 @@ To contribute to this repository, fork it and submit a pull request for review.
 
 ## Preview
 
-![]()
+![](https://raw.githubusercontent.com/Stacy-Martin/Workout_Tracker/main/public/Images/Screen%20Shot%202021-06-06%20at%2012.14.32%20AM.png)
 
 Check out the deployed app here:   
 https://secure-cliffs-85882.herokuapp.com/
