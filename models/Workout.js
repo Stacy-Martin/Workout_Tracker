@@ -16,18 +16,21 @@ const WorkoutSchema = new Schema({
       reps: Number,
       sets: Number,
       distance: Number,
-    },
+    }
   ],
+},{
+  versionKey:false
 });
 
-WorkoutSchema.virtual('totalDuration').get(function() {
-  let totalDuration = 0;
-  this.exercises.forEach(exercise => {
-    totalDuration += exercise.duration;
-  });
-  return totalDuration;
-});
+// WorkoutSchema.virtual('totalDuration').get(function() {
+//   let totalDuration = 0;
+//   this.exercises.forEach(exercise => {
+//     totalDuration += exercise.duration;
+//   });
+//   return totalDuration;
+// });
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
+
 
 module.exports = Workout;
